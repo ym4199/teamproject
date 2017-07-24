@@ -9,7 +9,8 @@ from django.db import models
 class MyUserManager(BaseUserManager):
     def create_user(self, email, nickname, password):
         if not email:
-            raise ValueError('Email Address Required!')
+            # email 를 등록 여부판단의 근거로 사용
+            raise ValueError('Email 주소가 필요합니다!')
 
         user = self.model(
             email=email,
@@ -23,6 +24,7 @@ class MyUserManager(BaseUserManager):
         user = self.create_user(email, nickname, password)
         user.is_admin = True
         user.is_superuser = True
+        # 관리자 권한을 준다.
         user.save(using=self._db)
         return user
 
@@ -33,6 +35,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=10)
 
     is_admin = models.BooleanField(default=False)
+    # 기본적으로 false 를 부여하고 superuser가 변경가능
 
     objects = MyUserManager()
 
