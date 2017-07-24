@@ -9,6 +9,7 @@ from member.models import MyUser
 class MyUserAdmin(UserAdmin):
     form = MyUserChangeForm
     list_display = ('nickname', 'email', 'is_admin')
+    # admin 페이지에서 관리할 항목들
     list_filter = ('is_admin',)
     fieldsets = (
         ('개인정보', {'fields': ('email', 'nickname', 'password',)}),
@@ -22,6 +23,7 @@ class MyUserAdmin(UserAdmin):
 
     search_fields = ('email', 'nickname',)
     ordering = ('nickname',)
+    # nickname 으로 정렬
     filter_horizontal = ()
 
 
