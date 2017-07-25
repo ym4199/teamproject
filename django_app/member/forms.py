@@ -13,7 +13,7 @@ class MyUserCreationForm(UserCreationForm):
             password1 = self.cleaned_data.get('password1')
             password2 = self.cleaned_data.get('password2')
             if password1 and password2 and password1 != password2:
-                raise forms.ValidationError("Password don't match")
+                raise forms.ValidationError("Password 가 일치하지 않습니다")
 
             return password2
 
@@ -30,7 +30,7 @@ class MyUserChangeForm(UserChangeForm):
 
     class Meta:
         model = MyUser
-        fields = ('email','password','is_admin')
+        fields = ('email', 'password', 'is_admin')
 
     def clean_password(self):
         return self.initial["password"]
