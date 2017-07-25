@@ -7,7 +7,7 @@ from member.models import MyUser
 class MyUserCreationForm(UserCreationForm):
     class Meat:
         model = MyUser
-        fields = ('email',)
+        fields = ('email')
 
         def clean_password2(self):
             password1 = self.cleaned_data.get('password1')
@@ -18,7 +18,7 @@ class MyUserCreationForm(UserCreationForm):
             return password2
 
         def save(self, commit=True):
-            user = super(MyUserCreationForm, self).save(commit=False)
+            user = super(MyUserCreationForm).save(commit=False)
             user.set_password(self.cleaned_data['password1'])
             if commit:
                 user.save()

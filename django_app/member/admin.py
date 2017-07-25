@@ -18,7 +18,7 @@ class MyUserAdmin(UserAdmin):
 
     add_form = MyUserCreationForm
     add_fieldsets = (
-        '기본정보', {'fields': ('email', 'nickname', 'username', 'password1', 'password2',)}
+        ('기본정보', {'fields': ('email', 'nickname', 'username', 'password1', 'password2',)}),
     )
 
     search_fields = ('email', 'username', 'nickname',)
