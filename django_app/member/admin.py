@@ -1,3 +1,6 @@
+
+# Register your models here.
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
@@ -7,6 +10,7 @@ from member.models import MyUser
 
 class MyUserAdmin(UserAdmin):
     form = MyUserChangeForm
+
     list_display = ('nickname', 'username', 'email', 'is_staff')
     # admin 페이지에서 관리할 항목들
     list_filter = ('is_staff',)
@@ -23,7 +27,6 @@ class MyUserAdmin(UserAdmin):
     search_fields = ('email', 'username', 'nickname',)
     ordering = ('-pk',)
     # pk로 정렬
-    filter_horizontal = ()
 
 
 admin.site.register(MyUser, MyUserAdmin)

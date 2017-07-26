@@ -14,4 +14,6 @@ DATABASES = {
 
 INSTALLED_APPS.append('django_extensions')
 
+
 WSGI_APPLICATION = 'config.wsgi.debug.application'
+

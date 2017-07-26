@@ -29,6 +29,8 @@ AUTH_USER_MODEL = 'member.MyUser'
 
 # Application definition
 
+AUTH_USER_MODEL='member.MyUser'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'member',
     'post',
+
     'group',
 ]
 
