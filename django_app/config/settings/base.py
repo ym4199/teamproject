@@ -24,6 +24,9 @@ config_secret_common = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config_secret_common['django']['secret_key']
 
+# Custom User Model
+AUTH_USER_MODEL = 'member.MyUser'
+
 # Application definition
 
 AUTH_USER_MODEL='member.MyUser'
@@ -37,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'member',
     'post',
+
+    'group',
 ]
 
 MIDDLEWARE = [
@@ -66,8 +71,6 @@ TEMPLATES = [
         },
     },
 ]
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
